@@ -4,6 +4,16 @@
       /vendor/laravel/framework/src/Illuminate/Mail/Mailer.php
 
 ### 2、使用方式
+
+      $config_info=[ 
+          'driver' => 'smtp',
+          'host' => 'smtp.exmail.qq.com',
+          'port' => '465',
+          'username' => 'testtest@testtest.com',
+          'password' => '123456',
+          'encryption' => 'ssl',
+          'fromname'=>'test',//发件人名称
+        ];
       $transport = Swift_SmtpTransport::newInstance($config_info["host"], $config_info["port"], $config_info["encryption"]);
       $transport->setUsername($config_info["username"]);
       $transport->setPassword($config_info["password"]);
