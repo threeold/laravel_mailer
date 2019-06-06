@@ -8,3 +8,8 @@
       $transport->setUsername($config_info["username"]);
       $transport->setPassword($config_info["password"]);
       $mailer = new Swift_Mailer($transport);
+      $res = Mail::send($temlate, compact('email_content'), function ($message) use ($from_mail, $subject, $user) {
+                        $message->from($from_mail, 'Mtserver');
+                        $message->to($user);
+                        $message->subject($subject);
+                    }, $mailer);
