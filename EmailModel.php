@@ -109,7 +109,7 @@ class EmailModel extends Model
             } elseif ($send_type == 2) {
                 foreach ($recipients as $uk => $user) { //给多个分开发
                     $res = Mail::send($temlate, compact('email_content'), function ($message) use ($from_mail, $subject, $user) {
-                        $message->from($from_mail, 'Mtserver');
+                        $message->from($from_mail, $from_name);
                         $message->to($user);
                         $message->subject($subject);
                     }, $mailer);
